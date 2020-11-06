@@ -1,0 +1,702 @@
+-- 
+-- ฐานข้อมูล: `medical`
+-- 
+CREATE DATABASE `medical` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `medical`;
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `appointment`
+-- 
+
+CREATE TABLE `appointment` (
+  `App_ID` int(5) NOT NULL auto_increment,
+  `User_ID` int(5) NOT NULL,
+  `Pat_ID` int(5) NOT NULL,
+  `App_Detail` text NOT NULL,
+  `App_Time` date NOT NULL,
+  `App_Status` varchar(20) NOT NULL,
+  `App_Date` datetime NOT NULL,
+  PRIMARY KEY  (`App_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+
+-- 
+-- dump ตาราง `appointment`
+-- 
+
+INSERT INTO `appointment` VALUES (1, 1, 1, 'ดูอาการ', '2014-11-07', 'รอดำเนินการ', '2014-09-11 10:23:17');
+INSERT INTO `appointment` VALUES (2, 1, 2, 'รอดูอาการ', '2014-11-08', 'เรียบร้อย', '0000-00-00 00:00:00');
+INSERT INTO `appointment` VALUES (3, 3, 1, '11', '2014-11-08', 'เรียบร้อย', '2014-10-06 15:45:26');
+INSERT INTO `appointment` VALUES (4, 3, 1, '11', '2014-11-10', 'ยกเลิก', '2014-10-06 15:46:14');
+INSERT INTO `appointment` VALUES (5, 3, 2, 'asdasd', '2014-11-10', 'รอดำเนินการ', '2014-10-06 15:51:58');
+INSERT INTO `appointment` VALUES (6, 3, 1, 'asd', '2014-11-23', 'รอดำเนินการ', '2014-10-06 15:59:25');
+INSERT INTO `appointment` VALUES (7, 3, 1, '123123', '2014-11-08', 'ยกเลิก', '2014-10-06 16:01:13');
+INSERT INTO `appointment` VALUES (8, 3, 1, '123123', '2014-11-24', 'รอดำเนินการ', '2014-10-08 08:38:02');
+INSERT INTO `appointment` VALUES (9, 3, 1, 'asdasdasd', '2014-11-14', 'รอดำเนินการ', '2014-10-08 08:43:29');
+INSERT INTO `appointment` VALUES (10, 3, 1, 'asdasdasd', '2014-11-14', 'รอดำเนินการ', '2014-10-08 08:43:51');
+INSERT INTO `appointment` VALUES (11, 3, 1, 'asdasdasd', '2014-11-14', 'รอดำเนินการ', '2014-10-08 08:44:06');
+INSERT INTO `appointment` VALUES (12, 3, 1, 'asdasdasd', '2014-11-14', 'รอดำเนินการ', '2014-10-08 08:44:23');
+INSERT INTO `appointment` VALUES (13, 3, 1, 'asdasdasd', '2014-11-14', 'รอดำเนินการ', '2014-10-08 08:45:29');
+INSERT INTO `appointment` VALUES (14, 3, 1, 'asdsad', '2014-11-08', 'รอดำเนินการ', '2014-10-08 08:45:56');
+INSERT INTO `appointment` VALUES (15, 3, 1, 'aaaaaaaaaaaaaaaฟ ฟหกฟหกฟ ๅ/-ๅ/กฟหก', '2014-11-23', 'รอดำเนินการ', '2014-10-09 09:03:11');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `contact`
+-- 
+
+CREATE TABLE `contact` (
+  `Con_ID` int(11) NOT NULL auto_increment,
+  `Con_Name` varchar(50) NOT NULL,
+  `Con_Tel` varchar(20) NOT NULL,
+  `Con_Mail` varchar(100) NOT NULL,
+  `Con_Subject` text NOT NULL,
+  `Con_Message` text NOT NULL,
+  PRIMARY KEY  (`Con_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- 
+-- dump ตาราง `contact`
+-- 
+
+INSERT INTO `contact` VALUES (1, '1111111', '1111111', '1111111', '1111111', '1111111');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `drug`
+-- 
+
+CREATE TABLE `drug` (
+  `Drug_ID` int(5) NOT NULL auto_increment,
+  `Drug_Name` varchar(50) NOT NULL,
+  `Drug_Detail` text NOT NULL,
+  `Drug_Type_ID` int(5) NOT NULL,
+  `Drug_Unit` varchar(50) NOT NULL,
+  `Drug_Cost_Price` decimal(11,2) NOT NULL,
+  `Drug_Price` decimal(11,2) NOT NULL,
+  `Pur_ID` int(5) NOT NULL,
+  `User_ID` int(5) NOT NULL,
+  `Drug_Date` date NOT NULL,
+  PRIMARY KEY  (`Drug_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=38 ;
+
+-- 
+-- dump ตาราง `drug`
+-- 
+
+INSERT INTO `drug` VALUES (1, 'พาราแซลตามอล', 'แก้ลดไข้ ลดอาการปวดหัว', 1, '5', 15.11, 11.00, 1, 1, '2014-10-19');
+INSERT INTO `drug` VALUES (3, 'พาราแซลตามอล3', 'ยาพารา', 3, '2', 0.00, 33.00, 0, 0, '2014-08-21');
+INSERT INTO `drug` VALUES (4, 'พาราแซลตามอล4', 'ยาทาแผล', 3, '7', 0.00, 44.00, 0, 0, '2014-08-21');
+INSERT INTO `drug` VALUES (5, 'พาราแซลตามอล5', 'ยาบ้า', 3, '2222', 0.00, 55.00, 0, 0, '2014-08-21');
+INSERT INTO `drug` VALUES (6, 'พาราแซลตามอล6', 'ยาม้า', 3, '7333', 0.00, 66.00, 0, 0, '2014-08-21');
+INSERT INTO `drug` VALUES (7, 'พาราแซลตามอล7', 'ยาอี', 3, '322', 0.00, 77.00, 0, 0, '2014-08-21');
+INSERT INTO `drug` VALUES (8, 'พาราแซลตามอล8', 'ยาประสาท', 3, '4', 0.00, 88.00, 0, 0, '2014-08-21');
+INSERT INTO `drug` VALUES (9, 'พาราแซลตามอล9', 'ยาแก้ปวด', 1, '5', 0.00, 99.00, 0, 0, '2014-08-20');
+INSERT INTO `drug` VALUES (10, 'พาราแซลตามอล10', 'ยาสีฟัน', 2, '44', 0.00, 111.00, 0, 0, '2014-08-21');
+INSERT INTO `drug` VALUES (2, 'พาราแซลตามอล2', '', 0, '', 0.00, 0.00, 0, 0, '0000-00-00');
+INSERT INTO `drug` VALUES (11, 'พาราแซลตามอล11', 'แก้ปวด, แก้ไข้', 2, '150', 0.00, 222.00, 0, 0, '2014-08-22');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `drug_type`
+-- 
+
+CREATE TABLE `drug_type` (
+  `Drug_Type_ID` int(5) NOT NULL auto_increment,
+  `Drug_Type_Name` varchar(20) NOT NULL,
+  PRIMARY KEY  (`Drug_Type_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `drug_type`
+-- 
+
+INSERT INTO `drug_type` VALUES (1, 'ขวด');
+INSERT INTO `drug_type` VALUES (2, 'เม็ด');
+INSERT INTO `drug_type` VALUES (3, 'แผง');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `expenditure`
+-- 
+
+CREATE TABLE `expenditure` (
+  `Exp_ID` int(5) NOT NULL auto_increment,
+  `User_ID` int(5) NOT NULL,
+  `Exp_Name` varchar(20) NOT NULL,
+  `Exp_Price` decimal(11,2) NOT NULL,
+  `Exp_Type` varchar(50) NOT NULL,
+  `Exp_Date` datetime NOT NULL,
+  PRIMARY KEY  (`Exp_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- 
+-- dump ตาราง `expenditure`
+-- 
+
+INSERT INTO `expenditure` VALUES (1, 1, 'จัดซื้อ', 25.00, 'จัดซื้อ', '2014-11-01 22:29:52');
+INSERT INTO `expenditure` VALUES (2, 4, 'เงินเดือน', 10053.22, 'เงินเดือน', '2014-11-01 22:34:35');
+INSERT INTO `expenditure` VALUES (3, 5, 'เงินเดือน', 11000.22, 'เงินเดือน', '2014-11-01 22:35:12');
+INSERT INTO `expenditure` VALUES (4, 1, 'จัดซื้อ', 825.00, 'จัดซื้อ', '2014-11-01 22:39:02');
+INSERT INTO `expenditure` VALUES (5, 1, 'จัดซื้อ พาราแซลตามอล', 225.00, 'จัดซื้อ', '2014-11-01 22:39:30');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `hist_dispense`
+-- 
+
+CREATE TABLE `hist_dispense` (
+  `Hist_ID` int(5) NOT NULL auto_increment,
+  `User_ID` int(5) NOT NULL,
+  `Pat_ID` int(5) NOT NULL,
+  `Hist_Total` decimal(11,2) NOT NULL,
+  PRIMARY KEY  (`Hist_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+
+-- 
+-- dump ตาราง `hist_dispense`
+-- 
+
+INSERT INTO `hist_dispense` VALUES (1, 3, 1, 5880.00);
+INSERT INTO `hist_dispense` VALUES (2, 3, 1, 6936.00);
+INSERT INTO `hist_dispense` VALUES (3, 3, 1, 3541.00);
+INSERT INTO `hist_dispense` VALUES (4, 3, 1, 199.00);
+INSERT INTO `hist_dispense` VALUES (5, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (6, 3, 1, 111.00);
+INSERT INTO `hist_dispense` VALUES (7, 3, 1, 23.00);
+INSERT INTO `hist_dispense` VALUES (8, 3, 1, 23.00);
+INSERT INTO `hist_dispense` VALUES (9, 3, 1, 45.00);
+INSERT INTO `hist_dispense` VALUES (10, 3, 1, 56.00);
+INSERT INTO `hist_dispense` VALUES (11, 3, 1, 1.00);
+INSERT INTO `hist_dispense` VALUES (12, 3, 1, 1.00);
+INSERT INTO `hist_dispense` VALUES (13, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (14, 3, 1, 123156.00);
+INSERT INTO `hist_dispense` VALUES (15, 3, 1, 77.00);
+INSERT INTO `hist_dispense` VALUES (16, 3, 1, 1154.00);
+INSERT INTO `hist_dispense` VALUES (17, 3, 1, 289.00);
+INSERT INTO `hist_dispense` VALUES (18, 3, 1, 156.00);
+INSERT INTO `hist_dispense` VALUES (19, 3, 1, 211.00);
+INSERT INTO `hist_dispense` VALUES (20, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (21, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (22, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (23, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (24, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (25, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (26, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (27, 3, 1, 0.00);
+INSERT INTO `hist_dispense` VALUES (28, 3, 1, 44.00);
+INSERT INTO `hist_dispense` VALUES (29, 3, 1, 96.00);
+INSERT INTO `hist_dispense` VALUES (30, 3, 1, 86.00);
+INSERT INTO `hist_dispense` VALUES (31, 3, 1, 60.00);
+INSERT INTO `hist_dispense` VALUES (32, 3, 1, 290.00);
+INSERT INTO `hist_dispense` VALUES (33, 3, 1, 167.00);
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `hist_dispense_detail`
+-- 
+
+CREATE TABLE `hist_dispense_detail` (
+  `Hist_ID` int(5) NOT NULL,
+  `Drug_ID` int(5) NOT NULL,
+  `Hist_d_Unit` int(5) NOT NULL,
+  `Hist_d_Price` decimal(11,2) NOT NULL,
+  `Hist_d_Date` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- dump ตาราง `hist_dispense_detail`
+-- 
+
+INSERT INTO `hist_dispense_detail` VALUES (3, 9, 2, 198.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (2, 7, 14, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (2, 6, 13, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (1, 3, 20, 33.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (1, 2, 10, 22.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (3, 11, 7, 1554.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (3, 10, 5, 555.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (4, 3, 1, 33.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (4, 6, 1, 66.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (5, 3, 1, 33.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (6, 4, 1, 44.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (6, 6, 1, 66.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (7, 2, 1, 22.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (8, 2, 1, 22.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (9, 4, 1, 44.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (10, 5, 1, 55.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (11, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (12, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (13, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (14, 3, 1, 33.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (15, 3, 1, 33.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (15, 4, 1, 44.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (16, 5, 1, 55.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (16, 9, 1, 99.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (17, 5, 1, 55.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (17, 10, 1, 111.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (18, 3, 1, 33.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (19, 10, 1, 111.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (20, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (21, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (22, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (23, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (24, 0, 0, 66.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (25, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (26, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (27, 0, 0, 0.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (28, 4, 1, 44.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (29, 6, 1, 66.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (30, 6, 1, 66.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (31, 5, 1, 55.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (32, 7, 1, 77.00, '2014-10-08 00:00:00');
+INSERT INTO `hist_dispense_detail` VALUES (33, 4, 1, 44.00, '2014-10-08 00:00:00');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `hist_treatment`
+-- 
+
+CREATE TABLE `hist_treatment` (
+  `Tre_ID` int(5) NOT NULL auto_increment,
+  `Pat_ID` int(5) NOT NULL,
+  `User_ID` tinyint(5) NOT NULL,
+  `Tre_Date` datetime NOT NULL,
+  `Tre_Symptoms` text NOT NULL,
+  `Tre_Examination` text NOT NULL,
+  `Tre_Diagnosis` text NOT NULL,
+  `Tre_Remedy` text NOT NULL,
+  `Tre_Dispensing` text NOT NULL,
+  `Tre_Appoint` varchar(15) NOT NULL,
+  `Tre_Status` char(1) NOT NULL,
+  PRIMARY KEY  (`Tre_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `hist_treatment`
+-- 
+
+INSERT INTO `hist_treatment` VALUES (1, 2, 3, '2014-10-10 06:34:21', 'มีไข้ขึ้นสูงมากจนผิดปกติ มีไข้ขึ้นสูงมากจนผิดปกติ มีไข้ขึ้นสูงมากจนผิดปกติ', 'ตรวจซาวหน้า รังษี เอกเล ตรวจซาวหน้า รังษี เอกเล', 'โรคฟันกำลุงจะผุ โรคฟันกำลุงจะผุ โรคฟันกำลุงจะผุ', 'ทานยาวิเศษ ทานยาวิเศษ ทานยาวิเศษ', 'yyy', 'นัด', '2');
+INSERT INTO `hist_treatment` VALUES (2, 1, 3, '2014-10-12 09:58:09', 'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'ไม่นัด', '1');
+INSERT INTO `hist_treatment` VALUES (3, 2, 3, '2014-10-27 00:00:00', '123', '123', '1123', '123', '123', 'นัด', '2');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `news`
+-- 
+
+CREATE TABLE `news` (
+  `News_ID` int(11) NOT NULL auto_increment,
+  `News_Title` varchar(100) NOT NULL,
+  `News_Detail` text NOT NULL,
+  `News_Image` varchar(150) NOT NULL,
+  `News_Date` datetime NOT NULL,
+  PRIMARY KEY  (`News_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `news`
+-- 
+
+INSERT INTO `news` VALUES (1, '111111111111111', '111111111111111', '111111111111111', '2014-10-26 13:47:31');
+INSERT INTO `news` VALUES (2, '222222222222222', '222222222222222', '222222222222222', '2014-10-26 13:47:37');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `patient`
+-- 
+
+CREATE TABLE `patient` (
+  `Pat_ID` int(5) NOT NULL auto_increment,
+  `Pat_ID_Card` char(13) NOT NULL,
+  `Pat_Gender` varchar(10) NOT NULL,
+  `Pat_Title` varchar(5) NOT NULL,
+  `Pat_Name` varchar(50) NOT NULL,
+  `Pat_Lastname` varchar(50) NOT NULL,
+  `Pat_Birthday` date NOT NULL,
+  `Pat_Religion` varchar(15) NOT NULL,
+  `Pat_Blood` varchar(5) NOT NULL,
+  `Pat_Address` text NOT NULL,
+  `Pat_Tel` varchar(10) NOT NULL,
+  `Pat_Career` varchar(30) NOT NULL,
+  `Pat_Total_Cost` decimal(11,2) NOT NULL,
+  `Pat_Date` date NOT NULL,
+  PRIMARY KEY  (`Pat_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `patient`
+-- 
+
+INSERT INTO `patient` VALUES (1, '1111111111111', 'หญิง', 'นางสา', 'แนน', 'นี่นะจ่ะ', '1981-09-10', 'ไทย', 'เอ', '222', '22222', 'ครู', 10000.22, '2014-08-21');
+INSERT INTO `patient` VALUES (2, '2147483647', 'ชาย', 'นาย', 'หน้านหล้า', 'คำบุญ', '1993-09-18', '', '', '', '', '', 0.00, '0000-00-00');
+INSERT INTO `patient` VALUES (3, '2147483647', 'ชาย', '1', '1', '1', '1994-09-18', '1', '1', '1', '1', '1', 0.00, '2014-09-19');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `patient_health`
+-- 
+
+CREATE TABLE `patient_health` (
+  `Pat_ID` int(5) NOT NULL auto_increment,
+  `Pat_Binge` text NOT NULL,
+  `Pat_Routinely` text NOT NULL,
+  `Pat_Intolerance` text NOT NULL,
+  `Pat_Diseases` text NOT NULL,
+  `Pat_Diseases_ON` text NOT NULL,
+  `Pat_Symptoms` text NOT NULL,
+  PRIMARY KEY  (`Pat_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `patient_health`
+-- 
+
+INSERT INTO `patient_health` VALUES (1, 'ดื่มบางครั้ง', 'ไม่มี', 'ไม่มี', 'ไม่มี', '', '');
+INSERT INTO `patient_health` VALUES (2, 'ดื่มบางครั้ง', 'ไม่มี', 'ไม่มี', 'ไม่มี', '', '');
+INSERT INTO `patient_health` VALUES (3, 'ดื่มบางครั้ง', 'ไม่มี', 'ไม่มี', 'ไม่มี', '', '');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `purchaser`
+-- 
+
+CREATE TABLE `purchaser` (
+  `Pur_ID` int(5) NOT NULL auto_increment,
+  `Pur_Business` varchar(100) NOT NULL,
+  `Pur_Name` varchar(50) NOT NULL,
+  `Pur_Lastname` varchar(50) NOT NULL,
+  `Pur_Address` text NOT NULL,
+  `Pur_Tel` varchar(15) NOT NULL,
+  `Pur_Email` varchar(100) NOT NULL,
+  `Pur_Bankname` varchar(50) NOT NULL,
+  `Pur_Account` varchar(30) NOT NULL,
+  `Pur_Note` text NOT NULL,
+  PRIMARY KEY  (`Pur_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- 
+-- dump ตาราง `purchaser`
+-- 
+
+INSERT INTO `purchaser` VALUES (1, 'Voide', 'Vio', 'Sony', 'Thailand', '1111111111', 'thai@mail.com', 'ไทยพาณิชย์', '1-1-12-3-123--1412-', 'ของปลอม');
+INSERT INTO `purchaser` VALUES (2, 'hhhhhhhhhhh', 'h', 'h', 'hh', 'hh', 'hh', 'h', 'h', 'hhh');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `purchaser_detail`
+-- 
+
+CREATE TABLE `purchaser_detail` (
+  `Purd_ID` int(5) NOT NULL auto_increment,
+  `Pur_ID` int(5) NOT NULL,
+  `Drug_ID` int(5) NOT NULL,
+  `Purd_Unit` varchar(50) NOT NULL,
+  `Purd_Cost_Price` decimal(11,2) NOT NULL,
+  `Purd_Price` decimal(11,2) NOT NULL,
+  `Purd_Status` varchar(20) NOT NULL,
+  `User_ID` tinyint(5) NOT NULL,
+  `Purd_Date` date NOT NULL,
+  PRIMARY KEY  (`Purd_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+-- 
+-- dump ตาราง `purchaser_detail`
+-- 
+
+INSERT INTO `purchaser_detail` VALUES (1, 1, 1, '50', 10.00, 40.00, 'รอดำเนินการ', 1, '2014-09-04');
+INSERT INTO `purchaser_detail` VALUES (2, 2, 3, '15', 15.00, 50.00, 'รับทั้งหมดแล้ว', 1, '2014-09-27');
+INSERT INTO `purchaser_detail` VALUES (3, 1, 1, '55', 15.00, 20.00, 'รับทั้งหมดแล้ว', 1, '2014-09-20');
+INSERT INTO `purchaser_detail` VALUES (4, 2, 1, '5', 5.00, 55.00, 'รับทั้งหมดแล้ว', 1, '2014-10-26');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `queue`
+-- 
+
+CREATE TABLE `queue` (
+  `Que_ID` int(5) NOT NULL auto_increment,
+  `Pat_ID` int(5) NOT NULL,
+  `Room_ID` int(5) NOT NULL,
+  PRIMARY KEY  (`Que_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+-- 
+-- dump ตาราง `queue`
+-- 
+
+INSERT INTO `queue` VALUES (15, 2, 1);
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `revenue`
+-- 
+
+CREATE TABLE `revenue` (
+  `Reve_ID` int(5) NOT NULL auto_increment,
+  `User_ID` int(5) NOT NULL,
+  `Pat_ID` int(5) NOT NULL,
+  `Reve_Name` varchar(20) NOT NULL,
+  `Reve_Price` decimal(11,2) NOT NULL,
+  `Reve_Type` varchar(50) NOT NULL,
+  `Reve_Date` datetime NOT NULL,
+  PRIMARY KEY  (`Reve_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `revenue`
+-- 
+
+INSERT INTO `revenue` VALUES (1, 1, 1, 'ค่ารักษา', 1.00, '1', '2014-10-31 06:46:11');
+INSERT INTO `revenue` VALUES (2, 2, 0, 'ลูกค้าไม่เอาเงินทอน', 0.00, '3', '2014-10-31 00:00:00');
+INSERT INTO `revenue` VALUES (3, 2, 0, 'lll', 50.00, '3', '2014-10-11 12:25:09');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `room`
+-- 
+
+CREATE TABLE `room` (
+  `Room_ID` int(5) NOT NULL,
+  `Room_Name` varchar(50) NOT NULL,
+  `Room_Status` varchar(20) NOT NULL,
+  `User_ID` int(5) NOT NULL,
+  PRIMARY KEY  (`Room_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- 
+-- dump ตาราง `room`
+-- 
+
+INSERT INTO `room` VALUES (1, 'ห้องเคาน์เตอร์บาร์', 'ไม่ว่าง', 3);
+INSERT INTO `room` VALUES (2, 'ห้องตรวจ1', 'ว่าง', 0);
+INSERT INTO `room` VALUES (3, 'ห้องตรวจ2', 'ว่าง', 0);
+INSERT INTO `room` VALUES (4, 'ห้องตรวจ3', 'ว่าง', 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `salary`
+-- 
+
+CREATE TABLE `salary` (
+  `Sal_ID` int(5) NOT NULL auto_increment,
+  `User_ID` varchar(20) NOT NULL,
+  `Sal_Salary` decimal(11,2) NOT NULL,
+  `Sal_OT_Hour` decimal(11,2) NOT NULL,
+  `Sal_OT_Price` decimal(11,2) NOT NULL,
+  `Sal_Decreas` decimal(11,2) NOT NULL,
+  `Sal_Status` varchar(50) NOT NULL,
+  `Sal_Date` date NOT NULL,
+  PRIMARY KEY  (`Sal_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- 
+-- dump ตาราง `salary`
+-- 
+
+INSERT INTO `salary` VALUES (1, '1', 25000.00, 50.00, 0.00, 0.00, 'ค้างจ่าย', '2014-10-11');
+INSERT INTO `salary` VALUES (2, '1', 10000.22, 50.00, 30.00, 500.00, 'จ่ายแล้ว', '2014-10-11');
+INSERT INTO `salary` VALUES (3, '1', 10000.22, 5.00, 11.00, 2.00, 'จ่ายแล้ว', '2014-11-01');
+INSERT INTO `salary` VALUES (4, '4', 10000.22, 5.00, 11.00, 2.00, 'จ่ายแล้ว', '2014-11-01');
+INSERT INTO `salary` VALUES (5, '5', 10000.22, 50.00, 30.00, 500.00, 'จ่ายแล้ว', '2014-11-01');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `set_contact`
+-- 
+
+CREATE TABLE `set_contact` (
+  `Address` text NOT NULL,
+  `Email` text NOT NULL,
+  `Telephone` text NOT NULL,
+  `Facebook` text NOT NULL,
+  `Google` text NOT NULL,
+  `Twitter` text NOT NULL,
+  `Instagram` text NOT NULL,
+  `Youtube` text NOT NULL,
+  `Map` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- dump ตาราง `set_contact`
+-- 
+
+INSERT INTO `set_contact` VALUES ('22/2', 'abc@gmail.com', '(66) 80 000 0000 หรือ 053 000 0001', 'http://facebook.com', 'http://google.com', 'http://twitter.com', 'http://instagram.com', 'http://youtube.com', 'https://maps.google.com/maps/ms?msa=0&msid=213438074455648801777.0004e5a0d1e89175f7b59&ie=UTF8&t=m&ll=13.745482,100.613995&spn=0.002428,0.010546&z=17&output=embed');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `setting`
+-- 
+
+CREATE TABLE `setting` (
+  `set_logo` text collate utf8_unicode_ci NOT NULL,
+  `set_title` text collate utf8_unicode_ci NOT NULL,
+  `set_description` text collate utf8_unicode_ci NOT NULL,
+  `set_keyword` text collate utf8_unicode_ci NOT NULL,
+  `set_footer` text collate utf8_unicode_ci NOT NULL,
+  `set_vat` char(2) collate utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- 
+-- dump ตาราง `setting`
+-- 
+
+INSERT INTO `setting` VALUES ('12', '12', '12', '12', '12', '10');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `treatment`
+-- 
+
+CREATE TABLE `treatment` (
+  `Tre_ID` int(5) NOT NULL auto_increment,
+  `Pat_ID` int(5) NOT NULL,
+  `User_ID` tinyint(5) NOT NULL,
+  `Tre_Date` date NOT NULL,
+  `Tre_Symptoms` text NOT NULL,
+  `Tre_Examination` text NOT NULL,
+  `Tre_Diagnosis` text NOT NULL,
+  `Tre_Remedy` text NOT NULL,
+  `Tre_Dispensing` text NOT NULL,
+  `Tre_Appoint` varchar(15) NOT NULL,
+  PRIMARY KEY  (`Tre_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- 
+-- dump ตาราง `treatment`
+-- 
+
+INSERT INTO `treatment` VALUES (3, 1, 1, '2014-10-12', '123', '123', '123', '123', '123', 'นัด');
+INSERT INTO `treatment` VALUES (4, 2, 3, '2014-10-27', '234', '234', '234', '234', '234', 'นัด');
+INSERT INTO `treatment` VALUES (5, 2, 3, '2014-10-27', '123', '123', '1123', '123', '123', 'นัด');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `user`
+-- 
+
+CREATE TABLE `user` (
+  `User_ID` tinyint(5) NOT NULL auto_increment,
+  `User_ID_Card` char(13) NOT NULL,
+  `User_Username` varchar(20) NOT NULL,
+  `User_Password` varchar(20) NOT NULL,
+  `User_Gender` varchar(10) NOT NULL,
+  `User_Title` varchar(30) NOT NULL,
+  `User_Name` varchar(50) NOT NULL,
+  `User_Lastname` varchar(50) NOT NULL,
+  `User_Nickame` varchar(20) NOT NULL,
+  `User_Birthday` date NOT NULL,
+  `User_Religion` varchar(15) NOT NULL,
+  `User_Blood` varchar(5) NOT NULL,
+  `User_Department` varchar(30) NOT NULL,
+  `User_Prof_photo` varchar(100) NOT NULL,
+  `User_Address` text NOT NULL,
+  `User_Tel` char(10) NOT NULL,
+  `User_Email` varchar(70) NOT NULL,
+  `User_Salary` decimal(11,2) NOT NULL,
+  `User_Photo` varchar(100) NOT NULL,
+  `User_Type_ID` int(1) NOT NULL,
+  PRIMARY KEY  (`User_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- 
+-- dump ตาราง `user`
+-- 
+
+INSERT INTO `user` VALUES (1, '1111111111111', 'admin', 'admin', 'หญิง', 'นางสาว', 'แนน', 'นะค่ะ', 'น้องแนน', '2014-08-31', 'พุทธ', 'เอ', '', '', '95/2', '127', '', 10000.22, '', 1);
+INSERT INTO `user` VALUES (2, '2222222222222', 'owner', 'owner', 'ชาย', 'นาย', 'แอม', 'ดีครับ', 'โชค', '2014-08-07', 'พุทธ', 'เอ', 'ผ่าตัด', '', '22/2 หมู่ 2 ต.สอง', '808880088', '', 1231211.42, '', 2);
+INSERT INTO `user` VALUES (4, '4444444444444', 'employ', 'employ', 'ชาย', 'นาย', 'ชาติชาย', 'สมบัตมี', 'สม', '2014-08-07', 'พุทธ', 'เอ', 'ฟัน', '', '95/2', '127', '', 10000.22, '', 4);
+INSERT INTO `user` VALUES (5, '5555555555555', 'member', 'member', 'ชาย', 'นาย', 'กระจอก', 'จังเลย', 'นก', '2014-08-07', 'พุทธ', 'เอ', 'ป้องกัน', '', '95/2', '127', '', 10000.22, '', 5);
+INSERT INTO `user` VALUES (3, '1510001487395', 'doctor', 'doctor', 'ชาย', 'นาย', 'สมคำ', 'จันทร์เจา', 'เทพ', '1984-08-04', 'พุทธ', 'เอ', '', '531851_365881753515447_1040840762_n.jpg', '33/4 หมู่ 10 ต.สวรรค อ.ย่านเมฆ จ.ศรีนคร', '0903030303', 'doctor@doctor.com', 50000.00, '1014560_371224846311387_633693443_o.jpg', 3);
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `webboard_reply`
+-- 
+
+CREATE TABLE `webboard_reply` (
+  `topic_id` int(11) NOT NULL,
+  `reply_id` int(11) NOT NULL,
+  `reply_detail` text collate utf8_unicode_ci NOT NULL,
+  `reply_date` datetime NOT NULL,
+  `reply_user` varchar(100) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`topic_id`,`reply_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- 
+-- dump ตาราง `webboard_reply`
+-- 
+
+INSERT INTO `webboard_reply` VALUES (1, 1, 'ทดสอบ1 ครั้งแรก นานๆ ทดสอบ1 ครั้งแรก นานๆ <br>ทดสอบ1 ครั้งแรก นานๆทดสอบ1 ครั้งแรก นานๆ<br>ทดสอบ1 ครั้งแรก นานๆทดสอบ1 ครั้งแรก <br>นานๆทดสอบ1 ครั้งแรก นานๆทดสอบ1 ครั้งแรก <br>นานๆทดสอบ1 ครั้งแรก นานๆทดสอบ1 ครั้งแรก นานๆ', '2014-11-04 07:35:47', 'ทดสอบ1');
+INSERT INTO `webboard_reply` VALUES (1, 2, 'ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ทดสอบ2 ', '2014-11-05 07:46:35', 'ทดสอบ1');
+INSERT INTO `webboard_reply` VALUES (1, 3, 'ทดสอบตอบกระทู้', '2014-11-04 09:35:51', 'ทดสอบตอบกระทู้');
+INSERT INTO `webboard_reply` VALUES (3, 1, '<h1>ทดลองตอบ</h1><b>ฟหกฟหกฟหก<i><br></i></b>ฟหกฟหกฟหก<i><br>ฟหกฟหกฟหก<br><u>ฟหกฟหกหฟกฟหกฟกห<br></u></i>ฟหกฟหก<br><br><i><u></u></i><ol><li>ฟหกหฟกฟหก</li></ol><ul><li><i></i></li></ul>', '2014-11-04 10:00:14', 'ทดลองตอบ');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `webboard_topic`
+-- 
+
+CREATE TABLE `webboard_topic` (
+  `topic_id` int(11) NOT NULL auto_increment,
+  `topic_title` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `topic_detail` text collate utf8_unicode_ci NOT NULL,
+  `topic_date` date NOT NULL,
+  `topic_user` varchar(100) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`topic_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `webboard_topic`
+-- 
+
+INSERT INTO `webboard_topic` VALUES (1, 'ทดสอบระบบครั้งแรกเพื่อดูความสวยงาม', 'ทดสอบระบบครั้งแรกเพื่อดูความสวยงาม <br>', '2014-11-04', 'แนนค่ะ');
+INSERT INTO `webboard_topic` VALUES (2, 'ทดสอบ2', 'ทดสอบ2', '2014-11-05', 'ทดสอบ2');
+INSERT INTO `webboard_topic` VALUES (3, 'ทดลองตั้งกระทู้ใหม่นะคะ', 'ทดลองตั้งกระทู้ใหม่นะคะ', '2014-11-04', 'ทดลองตั้งกระทู้ใหม่นะคะ');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `work`
+-- 
+
+CREATE TABLE `work` (
+  `Work_ID` int(11) NOT NULL auto_increment,
+  `User_ID` int(5) NOT NULL,
+  `Work_Date` date NOT NULL,
+  `Work_Enter` time NOT NULL,
+  `Work_Out` time NOT NULL,
+  `Work_Color` varchar(20) NOT NULL,
+  PRIMARY KEY  (`Work_ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+-- 
+-- dump ตาราง `work`
+-- 
+
+INSERT INTO `work` VALUES (1, 1, '2014-11-05', '07:00:00', '11:00:00', '#ff0000');
+INSERT INTO `work` VALUES (2, 3, '2014-11-05', '07:00:00', '12:00:00', '#0000ff');
+INSERT INTO `work` VALUES (3, 2, '0000-00-00', '00:00:00', '00:00:00', '');
+INSERT INTO `work` VALUES (4, 3, '0000-00-00', '00:00:00', '00:00:00', '');

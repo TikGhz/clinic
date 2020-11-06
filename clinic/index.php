@@ -1,0 +1,12 @@
+<?
+	session_start();
+	include("include/connect.php");
+	$module=$_GET['module'];
+	$file=$_GET['file'];
+	if($module){
+		require("module/$module/$file.php");
+	}
+	else{
+		require("module/signin/index.php");
+	}
+?>
